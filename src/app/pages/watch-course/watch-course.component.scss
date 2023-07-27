@@ -1,0 +1,84 @@
+@import '/src/styles.scss';
+
+.watch-div {
+	width: 100%;
+	padding: 0 20px;
+	flex: 1;
+
+	p {
+		font-size: 30px;
+	}
+}
+
+.video-div {
+	width: 800px;
+	height: auto;
+}
+
+.playlist-div {
+	border: 1px solid rgba(#000000, 0.6);
+	flex: 1;
+	margin: 0 15px;
+	height: 450px;
+	overflow-y: scroll !important;
+}
+
+.module-div {
+	width: 100%;
+}
+
+.module-head {
+	width: 100%;
+	background: rgb(240, 240, 240);
+	border: 1px solid lightgrey;
+	padding: 20px;
+	cursor: pointer;
+	user-select: none;
+
+	* {
+		width: 100%;
+		background: rgb(240, 240, 240);
+	}
+
+	strong {
+		font-size: 18px;
+		margin-right: 10px;
+	}
+}
+
+.preview {
+	color: $primary;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.content-element {
+	padding: 20px;
+	border: 1px solid rgb(240, 240, 240);
+	cursor: pointer;
+
+	& > * {
+		margin: 0 10px;
+	}
+
+	p {
+		font-size: 18px;
+	}
+
+	.type {
+		flex: 1;
+
+		p {
+			margin-left: 15px;
+		}
+	}
+}
+
+.selected-element {
+	background-color: lightgrey;
+}
+
+.showcase-div {
+	width: 70%;
+	padding: 20px;
+}

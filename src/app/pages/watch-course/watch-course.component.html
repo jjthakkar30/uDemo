@@ -1,0 +1,65 @@
+<div class="container-fluid page watch-div">
+	<p>{{ video.id }}. {{ video.title }}</p>
+	<div class="video-player f-row">
+		<div class="video-div">
+			<video width="800" controls [controlsList]="['nodownload']">
+				<source [src]="video.src" type="video/mp4" />
+			</video>
+		</div>
+		<div class="playlist-div f-col">
+			<div class="module-div" *ngFor="let module of course.modules">
+				<div class="module-head" (click)="toggleModule(module.id)">
+					<strong>Module {{ module.id }} : {{ module.title }}</strong>
+					<fa-icon
+						[icon]="arrowIcon"
+						size="lg"
+						[styles]="{ color: 'black' }"
+						[rotate]="toggles[module.id - 1] ? 180 : undefined"
+					></fa-icon>
+				</div>
+				<div
+					class="module-body"
+					*ngIf="toggles[module.id - 1] === true"
+					[@slideAnimation]
+				>
+					<div
+						class="content-element f-row"
+						*ngFor="let element of module.content"
+						[ngClass]="{
+							'selected-element':
+								module.id === moduleID && element.id === videoID
+						}"
+						[id]="{
+							videoElem: module.id === moduleID && element.id === videoID
+						}"
+						(click)="goToVideo(module.id, element.id)"
+					>
+						<div class="f-row type">
+							<fa-icon
+								[icon]="
+									element.type === 'video'
+										? videoIcon
+										: element.type === 'quiz'
+										? quizIcon
+										: assignmentIcon
+								"
+								size="lg"
+								[styles]="{ color: 'black' }"
+							></fa-icon>
+							<p>{{ element.title }}</p>
+						</div>
+						<p *ngIf="element.type === 'video'" class="length">
+							{{ element.length }} min
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="showcase-div">
+		<app-course-showcase
+			[course]="course"
+			[ifContent]="false"
+		></app-course-showcase>
+	</div>
+</div>

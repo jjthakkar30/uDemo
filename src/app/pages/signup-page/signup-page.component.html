@@ -1,0 +1,35 @@
+<div class="container-fluid page form-div f-col">
+	<form class="f-col form">
+		<div class="form-group">
+			<label for="sign-up-name">Full name</label>
+			<input
+				type="text"
+				name="sign-up-name"
+				id="sign-up-name"
+				class="form-control"
+				placeholder="eg. John Doe"
+			/>
+		</div>
+		<div class="form-group">
+			<label for="sign-up-email">Email</label>
+			<input
+				type="email"
+				name="sign-up-email"
+				id="sign-up-email"
+				class="form-control"
+				placeholder="eg. johndoe@gmail.com"
+			/>
+		</div>
+		<div class="form-group">
+			<label for="sign-up-pw">Password</label>
+			<input
+				type="password"
+				name="sign-up-pw"
+				id="sign-up-pw"
+				class="form-control"
+			/>
+		</div>
+		<button type="button" class="btn btn-primary form-btn">Sign up</button>
+	</form>
+	<p>Already have an account? <span routerLink="/user-login">Log in</span></p>
+</div>

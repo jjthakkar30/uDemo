@@ -1,0 +1,20 @@
+.showcase-options {
+	align-items: flex-start;
+}
+
+.option {
+	margin-right: 30px;
+	font-size: 20px;
+	cursor: pointer;
+	font-weight: bold;
+	color: grey;
+}
+
+.selected {
+	color: #000;
+	border-bottom: 2px solid #000;
+}
+
+.hide {
+	display: none;
+}

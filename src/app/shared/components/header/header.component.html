@@ -1,0 +1,44 @@
+<div class="container-fluid header f-row">
+	<div class="brand f-row" routerLink="/">
+		<img src="/assets/uDemo-logo-bgLight.png" alt="uDemoLogo" class="logo" />
+		<p class="b-name">Demo</p>
+	</div>
+
+	<p class="cats">Teach on uDemo</p>
+
+	<div class="buttons f-row">
+		<button
+			*ngIf="!isUserLoggedIn"
+			type="button"
+			class="btn btn-light login"
+			routerLink="/user-login"
+		>
+			Log in
+		</button>
+		<button
+			*ngIf="!isUserLoggedIn"
+			type="button"
+			class="btn btn-dark"
+			routerLink="/user-registration"
+		>
+			Sign up
+		</button>
+
+		<div *ngIf="isUserLoggedIn" class="user-dropdown">
+			<p class="drop-hover">
+				Hi, {{ uName }} <fa-icon [icon]="angleIcon"></fa-icon>
+			</p>
+			<div class="user-options">
+				<p class="user-option" [routerLink]="['/', 'user', uID, 'dashboard']">
+					<fa-icon class="u-icon" [icon]="dashboardIcon"></fa-icon>My Dashboard
+				</p>
+				<p class="user-option" [routerLink]="['/', 'user', uID]">
+					<fa-icon class="u-icon" [icon]="profileIcon"></fa-icon>Profile
+				</p>
+				<p class="user-option" (click)="onSignOut()">
+					<fa-icon class="u-icon" [icon]="logOutIcon"></fa-icon>Log Out
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

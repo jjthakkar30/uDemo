@@ -1,0 +1,106 @@
+<div class="course-div page container-fluid f-col">
+	<div class="course-hero f-row">
+		<div class="hero-left">
+			<div class="hero-titles">
+				<h1>{{ course.title }}</h1>
+				<h4>{{ course.short_desc }}</h4>
+			</div>
+			<div class="hero-info">
+				<p>
+					Instructor:
+					<span
+						class="link"
+						[routerLink]="[
+							'/',
+							'instructor',
+							course.instructor.replace(' ', '-')
+						]"
+						>{{ course.instructor }}</span
+					>
+				</p>
+				<p>
+					{{ course.rating }}/5<span class="star">&#9733;</span>
+					&#x2022;
+					<span>{{ course.reviews.length }} reviews</span>
+					&#x2022;
+					<span> {{ course.student_count }} Students</span>
+				</p>
+			</div>
+		</div>
+		<div class="hero-right">
+			<div class="course-img">
+				<img
+					src="/assets/course-thumbnail.jpg"
+					alt="course-thumbnail"
+					class="thumbnail"
+				/>
+				<img src="/assets/play-icon.png" alt="play" class="play" />
+			</div>
+			<div class="get-course">
+				<h3 class="fees">&#8377; {{ course.fees }}</h3>
+				<button
+					*ngIf="!ifEnrolled"
+					type="button"
+					class="btn btn-primary preview-btn"
+					(click)="open(previewModal)"
+				>
+					Preview course
+				</button>
+
+				<!-- Modal begin -->
+
+				<ng-template #previewModal let-c="close">
+					<div class="modal-header">
+						<h3>{{ course.title }} - Preview</h3>
+					</div>
+					<div class="modal-body f-row">
+						<div class="video">
+							<video
+								controls
+								[controlsList]="['nodownload']"
+								#videoPlayer
+								poster="/assets/course-video-thumbnail.png"
+							>
+								<source src="/assets/course-video.mp4" type="video/mp4" />
+							</video>
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button
+							type="button"
+							class="btn btn-outline-dark"
+							(click)="c('Close click')"
+						>
+							Close
+						</button>
+					</div>
+				</ng-template>
+
+				<!-- Modal end -->
+
+				<button
+					*ngIf="!ifEnrolled"
+					type="button"
+					class="btn btn-primary enroll-btn"
+					routerLink="payment"
+				>
+					Enroll now
+				</button>
+				<button
+					*ngIf="ifEnrolled"
+					type="button"
+					class="btn btn-primary enroll-btn"
+				>
+					Go to course
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="course-showcase-div">
+		<app-course-showcase
+			[ifContent]="true"
+			[course]="course"
+		></app-course-showcase>
+	</div>
+</div>

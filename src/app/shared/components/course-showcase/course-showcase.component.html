@@ -1,0 +1,32 @@
+<div class="course-showcase">
+	<div class="showcase-options f-row">
+		<p
+			class="option"
+			*ngFor="let option of showcaseOptions"
+			[ngClass]="{
+				selected: showcaseMode === option,
+				hide: !ifContent && option === 'Content'
+			}"
+			(click)="changeShowcaseMode(option)"
+		>
+			{{ option }}
+		</p>
+	</div>
+	<div class="showcase-content">
+		<div class="option-content" *ngIf="showcaseMode === 'Description'">
+			{{ course.desc }}
+		</div>
+		<div class="option-content" *ngIf="ifContent && showcaseMode === 'Content'">
+			<app-course-content
+				[modules]="course.modules"
+				[ifEnrolled]="false"
+			></app-course-content>
+		</div>
+		<div class="option-content" *ngIf="showcaseMode === 'Reviews'">
+			<app-course-review
+				[courseID]="course.id"
+				[reviews]="course.reviews"
+			></app-course-review>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,33 @@
+@import '/src/styles.scss';
+
+.error-div {
+	flex: 1;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
+}
+
+.error-msg {
+	padding: 50px;
+}
+
+.img-div {
+	width: 40%;
+}
+
+.doodle {
+	width: 400px;
+	height: auto;
+}
+
+.back-btn {
+	border: none;
+	padding: 10px 20px;
+	margin: 20px 0;
+	background: $primary;
+	color: #fff;
+
+	&:hover {
+		background: $accent;
+	}
+}

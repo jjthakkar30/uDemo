@@ -1,0 +1,106 @@
+@import '/src/styles.scss';
+
+.course-div {
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+}
+
+.course-hero {
+	width: 70%;
+}
+
+.hero-left {
+	padding: 20px;
+}
+
+.link {
+	color: $primary;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+.hero-right {
+	padding: 20px;
+}
+
+.course-img {
+	width: 350px;
+	height: auto;
+	cursor: pointer;
+	position: relative;
+
+	.thumbnail {
+		width: 350px;
+		height: auto;
+	}
+
+}
+
+.play {
+	position: absolute;
+	width: 50px;
+	height: auto;
+	top: 40%;
+	left: 40%;
+	background: white;
+	border-radius: 99999px;
+}
+
+.star {
+	color: #ffa600;
+}
+
+.fees {
+	margin: 10px 0;
+	text-align: right;
+}
+
+.enroll-btn {
+	border: none;
+	width: 100%;
+	margin: 10px 0;
+	font-size: 20px;
+	background: $primary;
+	color: #fff;
+
+	&:hover {
+		background: rgba($primary, $alpha: 0.7);
+	}
+}
+
+.preview-btn {
+	border: 1px solid $primary;
+	width: 100%;
+	margin: 0px 0;
+	font-size: 20px;
+	background: #fff;
+	color: $primary;
+	
+	&:hover {
+		border: 1px solid $primary;
+		background: $primary;
+		color: #fff;
+	}
+}
+
+.modal-body {
+	justify-content: center;
+	align-items: center;
+}
+
+.modal {
+	padding: 20px;
+	width: auto;
+}
+
+video {
+	cursor: pointer;
+	height: inherit;
+	width: inherit;
+}
+
+.course-showcase-div {
+	padding: 20px;
+	width: 70%;
+}

@@ -1,0 +1,71 @@
+@import '/src/styles.scss';
+
+.home-page {
+	height: 100%;
+	width: 100%;
+}
+
+.home {
+	flex: 1;
+	padding: 10px 30px;
+}
+
+.explore-div {
+	width: 100%;
+}
+
+.explore-input {
+	align-items: flex-end;
+	justify-content: space-evenly;
+}
+
+.search-div {
+	height: 50px;
+	// margin: 10px 20px 0 20px;
+	align-items: center;
+	padding: 0 20px;
+	border: 1px solid $text;
+	border-radius: 9999px;;
+}
+
+.s-icon {
+	margin-right: 20px;
+	cursor: not-allowed;
+}
+
+.search-input {
+	width: 100%;
+	min-width: 400px;
+	font-size: 15px;
+	outline: none;
+	border: none;
+	color: $text;
+}
+
+.select-div {
+	label {
+		margin-bottom: 5px;
+	}
+
+	select {
+		width: 200px;
+	}
+}
+
+.search-btn {
+	border: none;
+	width: 200px;
+	background: $primary;
+	color: #fff;
+
+	&:hover {
+		background: #be32f5a8;
+	}
+}
+
+.explore-course-grid {
+	padding: 30px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+}

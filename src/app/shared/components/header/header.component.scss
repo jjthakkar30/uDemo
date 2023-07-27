@@ -1,0 +1,90 @@
+@import '/src/styles.scss';
+
+.header {
+	width: 100%;
+	padding: 10px 30px;
+	justify-content: space-around;
+	align-items: center;
+	box-shadow: 0 2px 4px rgba(0,0,0,.08), 0 4px 12px rgba(0,0,0,.08);
+	margin-bottom: 20px;
+}
+
+.brand {
+	flex: 1;
+	align-items: center;
+	margin: 0 10px;
+	user-select: none;
+	cursor: pointer;
+}
+
+.logo {
+	height: 40px;
+	width: auto;
+	margin-bottom: 4px;
+}
+
+.b-name {
+	font-size: 40px;
+	margin-bottom: 0;
+	font-weight: 600;
+}
+
+.cats {
+	margin: 10px 20px 10px 20px;
+	font-size: 1em;
+	
+	&:hover {
+		cursor: pointer;
+		color: $primary;
+	}
+}
+
+.btn {
+	margin: 15px 5px;
+	white-space: nowrap;
+	border-radius: 0;
+}
+
+.login, .login:hover {
+	border: 1px solid $text;
+}
+
+.drop-hover {
+	margin: 10px;
+}
+
+.user-dropdown {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+
+	&:hover .user-options {
+		display: block;
+	}
+}
+
+.user-options {
+	display: none;
+	position: absolute;
+	right: 0;
+	background-color: #f1f1f1;
+	box-shadow: 0pz 8px 16px 0px rgba(#000000, 0.2);
+	width: 200px;
+	z-index: 1;
+	
+	p {
+		color: black;
+		padding: 16px 16px;
+		display: block;
+		margin-bottom: 0;
+		border: 1px solid rgba(#000000, 0.3);
+
+		&:hover {
+			background-color: #ddd;
+		}
+	}
+}
+
+.u-icon {
+	margin: 0 10px;
+}

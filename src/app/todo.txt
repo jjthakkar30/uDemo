@@ -1,0 +1,21 @@
+sign up template form
+
+more courses
+search filter courses ui/logic
+
+users working db
+user component, dashboard, edit profile, can review courses
+
+instructor interface, component
+review interface 																													--done
+review component
+star ratings
+
+course detail -> instructor, review component
+admin access
+
+comments
+
+tests
+
+match specs.

@@ -1,0 +1,63 @@
+@import '/src/styles.scss';
+
+.footer-div {
+	width: 100%;
+	padding: 30px 20px;
+	justify-content: space-between;
+	align-items: center;
+	background: #000;
+	margin: 40px 0 0 0;
+
+	.footer-options {
+		background: #000;
+		
+		.options {
+			background: #000;
+			margin: 20px;
+		}
+
+		p {
+			color: #fff;
+			background: #000;
+			cursor: pointer;
+			
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	
+	.footer-brand {
+		background: #000;
+		margin-right: 50px;
+		
+		.brand {
+			background: #000;
+			align-items: center;
+			margin: 10px 5px 10px 0;
+			user-select: none;
+			cursor: pointer;
+		}
+		
+		.logo {
+			background: #000;
+			height: 40px;
+			width: auto;
+			margin-bottom: 4px;
+		}
+		
+		.b-name {
+			background: #000;
+			font-size: 40px;
+			margin-bottom: 0;
+			font-weight: 600;
+			color: #fff;
+		}
+	}
+
+	p {
+		background: #000;
+		color: #fff;
+		margin-bottom: 0;
+	}
+}

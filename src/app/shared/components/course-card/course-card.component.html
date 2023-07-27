@@ -1,0 +1,14 @@
+<div class="card" [routerLink]="['course', courseData.id]">
+	<img src="/assets/course-thumbnail.jpg" alt="course-thumbnail" />
+	<div class="card-body">
+		<h6 class="card-title">{{ courseData.title }}</h6>
+		<p>{{ courseData.instructor }}</p>
+		<p class="card-text">
+			{{ courseData.short_desc }}
+		</p>
+		<div class="f-row numbers">
+			<p>{{ courseData.rating }}/5<span class="star">&#9733;</span></p>
+			<p>Rs. {{ courseData.fees }}</p>
+		</div>
+	</div>
+</div>

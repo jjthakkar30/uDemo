@@ -1,0 +1,24 @@
+<div class="container-fluid page payment-div f-col">
+	<div class="course-info">
+		<p>Course Name : {{ course.title }}</p>
+		<p>Course Instructor : {{ course.instructor }}</p>
+		<p>Course Fees : &#8377; {{ course.fees }}</p>
+	</div>
+
+	<div>
+		<button
+			type="button"
+			class="pay-btn"
+			[routerLink]="[
+				'/watch/course',
+				courseID,
+				'module',
+				moduleID,
+				'video',
+				videoID
+			]"
+		>
+			Confirm payment
+		</button>
+	</div>
+</div>

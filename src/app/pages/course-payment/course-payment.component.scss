@@ -1,0 +1,23 @@
+@import '/src/styles.scss';
+
+.payment-div {
+	flex: 1;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.course-info {
+	padding: 20px;
+}
+
+.pay-btn {
+	margin: 20px;
+	padding: 5px 10px;
+	background: none;
+	font-size: 18px;
+
+	&:hover {
+		background: #000;
+		color: #fff;
+	}
+}

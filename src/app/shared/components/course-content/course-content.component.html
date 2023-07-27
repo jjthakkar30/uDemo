@@ -1,0 +1,38 @@
+<div class="content-div f-col">
+	<div class="module-div" *ngFor="let module of modules">
+		<div class="module-head" (click)="toggleModule(module.id)">
+			<strong>Module {{ module.id }} : {{ module.title }}</strong>
+			<fa-icon
+				[icon]="arrowIcon"
+				size="lg"
+				[styles]="{ color: 'black' }"
+				[rotate]="toggles[module.id - 1] ? 180 : undefined"
+			></fa-icon>
+		</div>
+		<div
+			class="module-body"
+			*ngIf="toggles[module.id - 1] === true"
+			[@slideAnimation]
+		>
+			<div class="content-element f-row" *ngFor="let element of module.content">
+				<div class="f-row type">
+					<fa-icon
+						[icon]="
+							element.type === 'video'
+								? videoIcon
+								: element.type === 'quiz'
+								? quizIcon
+								: assignmentIcon
+						"
+						size="lg"
+						[styles]="{ color: 'black' }"
+					></fa-icon>
+					<p>{{ element.title }}</p>
+				</div>
+				<p *ngIf="element.type === 'video'" class="length">
+					{{ element.length }} min
+				</p>
+			</div>
+		</div>
+	</div>
+</div>

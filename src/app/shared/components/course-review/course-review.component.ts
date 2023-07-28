@@ -10,6 +10,12 @@ export class CourseReviewComponent implements OnInit {
 	@Input({}) courseID!: number;
 	@Input({}) reviews!: Array<IReview>;
 
+	courseRating: number = 4.5;
+
+	ariaValueText(current: number, max: number) {
+		return `${current} out of ${max} hearts`;
+	}
+
 	ngOnInit(): void {
 		console.log(this.courseID);
 		console.log(this.reviews);

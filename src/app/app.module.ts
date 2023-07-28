@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboa
 import { UserProfileComponent } from './pages/user/user-profile/user-profile.component';
 import { CourseReviewComponent } from './shared/components/course-review/course-review.component';
 import { InstructorDetailComponent } from './pages/instructor-detail/instructor-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -49,7 +51,9 @@ import { InstructorDetailComponent } from './pages/instructor-detail/instructor-
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
-		BrowserAnimationsModule
+		BrowserAnimationsModule,
+		NgbModule,
+		FormsModule
   ],
   providers: [
 		courseService,

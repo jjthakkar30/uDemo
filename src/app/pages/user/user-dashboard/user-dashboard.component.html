@@ -1,1 +1,14 @@
-<p>user-dashboard works!</p>
+<div class="container-fluid page user-dashboard">
+	<div class="user-courses">
+		<p class="display-4">My Courses</p>
+		<div class="enrolled-course-list">
+			<app-course-card
+				*ngFor="let course of enrolledCourses; let i = index"
+				[courseData]="course"
+				[courseProgress]="courseProgressArray[i]"
+				[ifEnrolled]="true"
+				[routerLink]="['/watch/course', course.id, 'module', 1, 'video', 1]"
+			></app-course-card>
+		</div>
+	</div>
+</div>

@@ -90,6 +90,7 @@
 					*ngIf="ifEnrolled"
 					type="button"
 					class="btn btn-primary enroll-btn"
+					[routerLink]="['/watch/course', courseID, 'module', 1, 'video', 1]"
 				>
 					Go to course
 				</button>

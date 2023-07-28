@@ -1,4 +1,4 @@
-import { AfterContentChecked, Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { loginService } from '../../api/services/login.service';
 import { Router } from '@angular/router';
 import { IUser } from '../../api/services/user.service';
@@ -9,7 +9,7 @@ import { faAngleDown, faGaugeHigh, faUser, faArrowRightFromBracket } from '@fort
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit,OnChanges {
 	constructor(private _loginService: loginService, private router: Router) {}
 
 	isUserLoggedIn!: boolean;
@@ -24,10 +24,15 @@ export class HeaderComponent implements OnInit {
 	ngOnInit(): void {
 		this._loginService.isUserLoggedIn.subscribe((value: boolean) => {
 			this.isUserLoggedIn = value;
-
-			this.uName = typeof this._loginService.currentUser?.name === 'string' ? this._loginService.currentUser.name : '';
-			this.uID = typeof this._loginService.currentUser?.id === 'number' ? this._loginService.currentUser?.id : -1;
 		});
+	}
+
+	ngOnChanges(): void {
+		if (this.isUserLoggedIn) {
+			this.uName = this._loginService.currentUser.name;
+			console.log(this.uName);
+			this.uID = this._loginService.currentUser.id;
+		}
 	}
 
 	onSignOut() {

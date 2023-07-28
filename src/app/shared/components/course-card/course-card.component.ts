@@ -11,8 +11,24 @@ export class CourseCardComponent {
 	constructor(private router: Router) {}
 
 	@Input() courseData !: ICourse;
+	@Input() ifEnrolled !: boolean;
+	@Input() courseProgress !: number;
 
-	goToCourse(id: number) {
-		
+	onCardClick(): void {
+		if(this.ifEnrolled) {
+			this.router.navigate
+		} else
+
+		this.router.navigate(
+			this.ifEnrolled ?
+			['/watch/course',
+			this.courseData.id,
+			'module',
+			1,
+			'video',
+			1]
+			 :
+			['course', this.courseData.id]
+		);
 	}
 }

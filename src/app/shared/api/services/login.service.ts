@@ -1,5 +1,4 @@
-import { Injectable, Output } from "@angular/core";
-import { EventEmitter } from "@angular/core";
+import { Inject, Injectable, Injector, Output } from "@angular/core";
 import { IUser, userService } from "./user.service";
 import { Router } from "@angular/router";
 import { BehaviorSubject, Observable, Subject, tap } from "rxjs";
@@ -8,13 +7,13 @@ import { BehaviorSubject, Observable, Subject, tap } from "rxjs";
 	providedIn: 'root'
 })
 export class loginService {
-	currentUser!: IUser | undefined;
+	currentUser!: IUser;
 	HasUserLoggedIn: BehaviorSubject<boolean> = new BehaviorSubject(false);
 	isUserLoggedIn = this.HasUserLoggedIn.asObservable();
 
 	setIfLoggedIn = (value: boolean) => this.HasUserLoggedIn.next(value);
 
-	constructor(private _userService: userService, private router: Router) {}
+	constructor(private injector: Injector, private router: Router) {}
 
 	isAunthenticated(): boolean {
 		return this.HasUserLoggedIn.value;
@@ -23,8 +22,9 @@ export class loginService {
 
 
 	userLogIn(email: string, pw: string) {
-		let user:IUser = this._userService.getUser(email, pw);
-
+		const uService: userService = this.injector.get(userService);
+		let user:IUser = uService.getUser(email, pw);
+		
 		if (user) {
 			this.currentUser = user;
 			this.setIfLoggedIn(true);
@@ -36,11 +36,14 @@ export class loginService {
 	}
 	
 	userLogOut() {
-		this.currentUser = undefined;
 		this.setIfLoggedIn(false);
 		this.router.navigate(['/']);
 	}
-
+	
 	userSignUp(name: string, email: string, pw: string) {
+		const uService: userService = this.injector.get(userService);
+		uService.createUser(name, email, pw);
+		this.setIfLoggedIn(true);
+		this.currentUser = uService.getUser(email, pw);
 	}
 }
